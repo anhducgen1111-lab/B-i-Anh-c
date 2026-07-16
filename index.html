@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Cá Nhân - Anh Đức</title>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #f1f8e9;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links button {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links button:hover, .nav-links button.active {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        /* Container for Sections */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Intro Section */
+        .intro-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .intro-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Projects Section */
+        .project-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .project-card .tag {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .img-placeholder {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #eee;
+        }
+
+        /* Summary Section */
+        .summary-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Anh Đức Portfolio</div>
+            <div class="nav-links">
+                <button class="tab-link active" onclick="openTab(event, 'GioiThieu')">Giới thiệu</button>
+                <button class="tab-link" onclick="openTab(event, 'DuAn')">Dự án</button>
+                <button class="tab-link" onclick="openTab(event, 'TongKet')">Tổng kết</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- TRANG GIỚI THIỆU -->
+        <section id="GioiThieu" class="tab-content active">
+            <div class="intro-card">
+                <!-- Đổi link ảnh avatar của bạn vào src bên dưới -->
+                <img src="https://via.placeholder.com/150" alt="Avatar Ngọc Anh">
+                <h2>Ngọc Anh</h2>
+                <p style="color: var(--text-light); margin-bottom: 20px;">Sinh viên Ngành Kinh tế - Trường Đại học Kinh tế, ĐHQGHN</p>
+                <p>Chào mừng mọi người đến với Portfolio cá nhân của mình. Dự án này được thiết kế để tổng hợp và lưu trữ những kỹ năng số mình đã rèn luyện được. Mục tiêu của mình không chỉ là hoàn thành một bài tập học thuật, mà còn để ứng dụng trực tiếp các công cụ công nghệ và trí tuệ nhân tạo vào việc tối ưu hóa các công việc thường ngày, từ quản lý tài chính, hồ sơ cá nhân đến tra cứu thông tin đời sống.</p>
+            </div>
+        </section>
+
+        <!-- TRANG DỰ ÁN -->
+        <section id="DuAn" class="tab-content">
+            <h2 style="margin-bottom: 25px; text-align: center; color: var(--text-dark);">Tập hợp các bài tập hoàn thành</h2>
+            
+            <div class="project-card">
+                <span class="tag">Bài tập 1</span>
+                <h3>Thao tác cơ bản với tệp tin và thư mục</h3>
+                <p><strong>Mục tiêu:</strong> Tối ưu hóa không gian lưu trữ và quản lý hồ sơ cá nhân trên môi trường số.</p>
+                <p><strong>Tóm tắt quá trình:</strong> Khi chuẩn bị hồ sơ cho công việc làm thêm, mình nhận ra việc số hóa và sắp xếp giấy tờ rất quan trọng. Mình đã thiết lập cấu trúc thư mục rõ ràng và đồng nhất để lưu trữ các bản scan giấy tờ tùy thân, biểu mẫu đăng ký và hợp đồng. Việc phân loại logic này giúp mình truy xuất và gửi hồ sơ trực tuyến một cách nhanh chóng, tránh nhầm lẫn hoặc thất lạc tài liệu quan trọng.</p>
+                <!-- Đổi link ảnh chụp cây thư mục vào src -->
+                <img src="https://via.placeholder.com/800x400?text=Anh+chup+cay+thu+muc+ho+so" alt="Minh chứng Bài 1" class="img-placeholder">
+            </div>
+
+            <div class="project-card">
+                <span class="tag">Bài tập 2</span>
+                <h3>Tìm kiếm và đánh giá thông tin</h3>
+                <p><strong>Mục tiêu:</strong> Sử dụng toán tử nâng cao để chắt lọc thông tin tiêu dùng chính xác.</p>
+                <p><strong>Tóm tắt quá trình:</strong> Trước khi quyết định mua các thiết bị công nghệ cá nhân như tai nghe Soundcore 50i, mình thường dùng toán tử tìm kiếm để lọc thông tin. Việc bọc lót từ khóa và giới hạn tên miền giúp mình loại bỏ được các trang web quảng cáo rác. Nhờ đó, mình có thể tiếp cận trực tiếp với những bài đánh giá thực tế từ người dùng trên các diễn đàn uy tín, tạo cơ sở để đưa ra quyết định mua sắm khách quan và hợp lý nhất.</p>
+                <!-- Đổi link ảnh chụp thanh tìm kiếm Google vào src -->
+                <img src="https://via.placeholder.com/800x400?text=Anh+chup+tim+kiem+Google+Soundcore+50i" alt="Minh chứng Bài 2" class="img-placeholder">
+            </div>
+
+            <div class="project-card">
+                <span class="tag">Bài tập 3</span>
+                <h3>Viết Prompt hiệu quả</h3>
+                <p><strong>Mục tiêu:</strong> Áp dụng kỹ thuật viết câu lệnh (Prompt Engineering) để giải quyết các nhu cầu thường ngày.</p>
+                <p><strong>Tóm tắt quá trình:</strong> Thay vì hỏi công thức nấu ăn một cách chung chung, mình yêu cầu AI đóng vai một đầu bếp chuyên nghiệp. Mình cung cấp định lượng chính xác của nguyên liệu và yêu cầu cách pha chế sốt BBQ dựa trên những gia vị có sẵn trong bếp. Nhờ việc thiết lập rõ ngữ cảnh và giới hạn đầu ra, công cụ AI đã trả về một công thức chi tiết, có tính ứng dụng cao và dễ dàng thực hiện ngay tại nhà.</p>
+                <img src="https://via.placeholder.com/800x400?text=Anh+chup+man+hinh+prompt+nau+an" alt="Minh chứng Bài 3" class="img-placeholder">
+            </div>
+
+            <div class="project-card">
+                <span class="tag">Bài tập 4</span>
+                <h3>Sử dụng công cụ hợp tác trực tuyến</h3>
+                <p><strong>Mục tiêu:</strong> Triển khai công cụ đám mây để quản lý tiến độ và ngân sách cho hoạt động tập thể.</p>
+                <p><strong>Tóm tắt quá trình:</strong> Ứng dụng công cụ làm việc trực tuyến không chỉ dừng lại ở môi trường học đường. Mình đã thiết lập một bảng tính Google Sheets để cùng nhóm bạn lên lịch trình du lịch. Mọi chi phí dự kiến, phân công chuẩn bị đồ đạc và lịch trình di chuyển đều được cập nhật tập trung. Tất cả thành viên đều có quyền truy cập và theo dõi trực tiếp, giúp việc phân chia tài chính trở nên minh bạch và quá trình chuẩn bị diễn ra suôn sẻ.</p>
+                <img src="https://via.placeholder.com/800x400?text=Anh+chup+Google+Sheets+Lich+trinh" alt="Minh chứng Bài 4" class="img-placeholder">
+            </div>
+
+            <div class="project-card">
+                <span class="tag">Bài tập 5</span>
+                <h3>Sử dụng AI tạo sinh hỗ trợ sáng tạo nội dung</h3>
+                <p><strong>Mục tiêu:</strong> Kết hợp công cụ trí tuệ nhân tạo để phác thảo và phát triển nội dung số cá nhân.</p>
+                <p><strong>Tóm tắt quá trình:</strong> Khi muốn viết một bài blog ngắn chia sẻ trải nghiệm thay đổi phong cách cá nhân, mình đã dùng AI để hệ thống hóa các ý chính và sắp xếp bố cục. Tuy nhiên, để nội dung phản ánh đúng góc nhìn thực tế, mình không sử dụng nguyên văn kết quả trả về. Mình đã trực tiếp biên tập lại toàn bộ câu chữ, bổ sung cảm nhận cá nhân để bài viết tự nhiên và mang đậm dấu ấn riêng.</p>
+                <img src="https://via.placeholder.com/800x400?text=Anh+chup+dan+y+AI+va+Blog+hoan+thien" alt="Minh chứng Bài 5" class="img-placeholder">
+            </div>
+
+            <div class="project-card">
+                <span class="tag">Bài tập 6</span>
+                <h3>Sử dụng AI có trách nhiệm</h3>
+                <p><strong>Mục tiêu:</strong> Thiết lập nguyên tắc an toàn và tư duy phản biện khi tiếp nhận thông tin từ AI.</p>
+                <p><strong>Bộ nguyên tắc cá nhân:</strong> Trong thời đại thông tin số, nguyên tắc cốt lõi của mình là luôn giữ tư duy phản biện đối với mọi dữ liệu do AI cung cấp. Khi tham khảo các gợi ý tiêu dùng, tư vấn hay thông tin trên mạng, mình hiểu rằng AI hoàn toàn có thể tạo ra những nội dung sai lệch hoặc đánh giá ảo. Việc chủ động kiểm chứng chéo thông tin qua nhiều nguồn độc lập giúp mình duy trì sự tỉnh táo, đưa ra các quyết định chính xác và tự chịu trách nhiệm với những lựa chọn của bản thân.</p>
+            </div>
+        </section>
+
+        <!-- TRANG TỔNG KẾT -->
+        <section id="TongKet" class="tab-content">
+            <div class="summary-card">
+                <h2 style="color: var(--primary-color); margin-bottom: 20px; text-align: center;">Nhìn Lại Chặng Đường</h2>
+                <p>Dự án Portfolio này đã giúp mình nhìn nhận lại toàn bộ quá trình ứng dụng công nghệ vào đời sống. Từ việc sắp xếp các tệp tin tưởng chừng đơn giản đến việc tương tác với các mô hình ngôn ngữ lớn, mình nhận ra rằng công nghệ chỉ thực sự phát huy sức mạnh khi con người biết cách làm chủ và sử dụng nó một cách có chủ đích.</p>
+                <br>
+                <p>Những kỹ năng số này chắc chắn sẽ là nền tảng vững chắc để mình tiếp tục học tập, quản lý cuộc sống và làm việc hiệu quả hơn trong tương lai.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Script chuyển tab -->
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // Ẩn tất cả các nội dung tab
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Xóa class active của tất cả các nút
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            // Hiển thị tab hiện tại và thêm class active cho nút được click
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
+</body>
+</html>
