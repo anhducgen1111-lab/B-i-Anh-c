@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SYS.ANH_DUC - Portfolio Kỹ Năng Số</title>
+    <title>Portfolio Kỹ Năng Số - Anh Đức</title>
     <style>
         :root {
             --neon-blue: #00f3ff;
@@ -24,7 +24,7 @@
             font-family: 'Inter', 'Segoe UI', sans-serif;
         }
 
-        /* Tùy chỉnh thanh cuộn cho đậm chất tech */
+        /* Tùy chỉnh thanh cuộn */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--dark-bg); }
         ::-webkit-scrollbar-thumb { background: var(--neon-blue); border-radius: 4px; }
@@ -47,13 +47,13 @@
             z-index: -1;
         }
 
-        /* Giao diện Menu Floating Pill phóng khoáng */
+        /* Giao diện Menu Floating Pill */
         header {
             position: fixed;
             top: 25px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(10, 15, 30, 0.7);
+            background: rgba(10, 15, 30, 0.85);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             z-index: 1000;
@@ -81,7 +81,7 @@
 
         .nav-links {
             display: flex;
-            gap: 5px;
+            gap: 10px;
         }
 
         .nav-links button {
@@ -91,9 +91,11 @@
             font-weight: 600;
             color: var(--text-light);
             cursor: pointer;
-            padding: 8px 18px;
+            padding: 8px 20px;
             border-radius: 30px;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .nav-links button:hover {
@@ -108,9 +110,9 @@
 
         /* Container mở rộng */
         .container {
-            max-width: 1200px; /* Rộng hơn để bố cục thoáng hơn */
+            max-width: 1200px; 
             margin: 0 auto;
-            padding: 120px 20px 50px 20px; /* Cách top để không lẹm menu */
+            padding: 120px 20px 50px 20px; 
         }
 
         .tab-content {
@@ -131,7 +133,7 @@
         /* Glassmorphism chung */
         .glass-panel {
             background: var(--card-bg);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: var(--radius-lg);
@@ -217,14 +219,13 @@
             text-align: justify;
         }
 
-        /* Bento Grid phần Dự án (ĐỘC ĐÁO & PHÓNG KHOÁNG) */
+        /* Bento Grid phần Dự án */
         .projects-bento {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
         }
 
-        /* Bài 3 & Bài 6 sẽ dàn toàn bộ chiều ngang */
         .col-span-2 { grid-column: span 2; }
 
         .project-header {
@@ -259,10 +260,10 @@
 
         .project-desc strong { color: #fff; }
 
-        /* Tùy chỉnh PDF Frame cho phù hợp lưới Grid */
+        /* Tùy chỉnh PDF Frame */
         .pdf-container {
             width: 100%;
-            height: 300px; /* Chiều cao vừa vặn cho ô nhỏ */
+            height: 300px;
             border: 1px solid rgba(0, 243, 255, 0.15);
             border-radius: var(--radius-md);
             overflow: hidden;
@@ -270,7 +271,7 @@
         }
 
         .col-span-2 .pdf-container {
-            height: 400px; /* Ô to thì khung PDF cao hơn */
+            height: 400px; 
         }
 
         .pdf-container iframe {
@@ -316,9 +317,10 @@
         <nav>
             <div class="logo">SYS.DUC</div>
             <div class="nav-links">
-                <button class="tab-link active" onclick="openTab(event, 'GioiThieu')">INIT</button>
-                <button class="tab-link" onclick="openTab(event, 'DuAn')">EXEC</button>
-                <button class="tab-link" onclick="openTab(event, 'TongKet')">OUT</button>
+                <!-- Đã chỉnh sửa lại chuẩn 3 phần -->
+                <button class="tab-link active" onclick="openTab(event, 'GioiThieu')">Giới thiệu</button>
+                <button class="tab-link" onclick="openTab(event, 'DuAn')">Dự án</button>
+                <button class="tab-link" onclick="openTab(event, 'TongKet')">Tổng kết</button>
             </div>
         </nav>
     </header>
@@ -333,9 +335,9 @@
                     <div class="major">KINH TẾ - UEB, ĐHQGHN</div>
                     
                     <div class="tech-info">
-                        <p>ID_SV: <span>25050547</span></p>
+                        <p>MÃ_SV: <span>25050547</span></p>
                         <hr style="border: 0; border-top: 1px dashed rgba(255,255,255,0.2); margin: 10px 0;">
-                        <p>CLASS: <span>VNU1001_E252045_UEB.D6</span></p>
+                        <p>LỚP: <span>VNU1001_E252045_UEB.D6</span></p>
                         <hr style="border: 0; border-top: 1px dashed rgba(255,255,255,0.2); margin: 10px 0;">
                         <p>STATUS: <span style="color: #00ff00;">ONLINE</span></p>
                     </div>
@@ -367,7 +369,7 @@
                 <div class="glass-panel">
                     <div class="project-header">
                         <h3>Thao tác tệp tin</h3>
-                        <span class="tag">TASK_01</span>
+                        <span class="tag">BÀI 1</span>
                     </div>
                     <div class="project-desc">
                         <p><strong>Mục tiêu:</strong> Tối ưu hóa không gian lưu trữ cá nhân.</p>
@@ -384,7 +386,7 @@
                 <div class="glass-panel">
                     <div class="project-header">
                         <h3>Đánh giá thông tin</h3>
-                        <span class="tag">TASK_02</span>
+                        <span class="tag">BÀI 2</span>
                     </div>
                     <div class="project-desc">
                         <p><strong>Mục tiêu:</strong> Chắt lọc thông tin số chính xác.</p>
@@ -401,7 +403,7 @@
                 <div class="glass-panel col-span-2">
                     <div class="project-header">
                         <h3>Viết Prompt Hiệu Quả (Prompt Engineering)</h3>
-                        <span class="tag">TASK_03</span>
+                        <span class="tag">BÀI 3</span>
                     </div>
                     <div class="project-desc">
                         <p><strong>Mục tiêu:</strong> Làm chủ ngôn ngữ giao tiếp với Trí tuệ nhân tạo.</p>
@@ -418,7 +420,7 @@
                 <div class="glass-panel">
                     <div class="project-header">
                         <h3>Hợp tác trực tuyến</h3>
-                        <span class="tag">TASK_04</span>
+                        <span class="tag">BÀI 4</span>
                     </div>
                     <div class="project-desc">
                         <p><strong>Mục tiêu:</strong> Điều phối công việc tập thể.</p>
@@ -435,7 +437,7 @@
                 <div class="glass-panel">
                     <div class="project-header">
                         <h3>Sáng tạo với AI</h3>
-                        <span class="tag">TASK_05</span>
+                        <span class="tag">BÀI 5</span>
                     </div>
                     <div class="project-desc">
                         <p><strong>Mục tiêu:</strong> Tận dụng sức mạnh tạo sinh.</p>
@@ -452,7 +454,7 @@
                 <div class="glass-panel col-span-2">
                     <div class="project-header">
                         <h3>Sử dụng AI có trách nhiệm (AI Ethics)</h3>
-                        <span class="tag">TASK_06</span>
+                        <span class="tag">BÀI 6</span>
                     </div>
                     <div class="project-desc">
                         <p><strong>Mục tiêu:</strong> Thiết lập nguyên tắc an toàn và tư duy phản biện khi tiếp nhận thông tin.</p>
