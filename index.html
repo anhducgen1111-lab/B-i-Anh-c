@@ -9,9 +9,10 @@
             --primary-color: #2e7d32;
             --secondary-color: #f1f8e9;
             --text-dark: #333;
-            --text-light: #666;
+            --text-light: #555;
             --bg-light: #f9f9f9;
             --white: #ffffff;
+            --accent-color: #ff9800;
         }
 
         * {
@@ -24,7 +25,7 @@
         body {
             background-color: var(--bg-light);
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         /* Header & Navigation */
@@ -47,24 +48,25 @@
 
         .logo {
             font-size: 1.5rem;
-            font-weight: bold;
+            font-weight: 700;
             color: var(--primary-color);
+            letter-spacing: 1px;
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 15px;
         }
 
         .nav-links button {
             background: none;
             border: none;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--text-light);
             cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 5px;
+            padding: 8px 16px;
+            border-radius: 8px;
             transition: all 0.3s ease;
         }
 
@@ -82,7 +84,7 @@
 
         .tab-content {
             display: none;
-            animation: fadeIn 0.5s ease-in-out;
+            animation: fadeIn 0.6s ease-in-out;
         }
 
         .tab-content.active {
@@ -90,71 +92,140 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Intro Section */
+        /* Intro Section - Expanded */
         .intro-card {
             background: var(--white);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
         }
 
         .intro-card img {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--secondary-color);
-            margin-bottom: 20px;
+            border: 5px solid var(--secondary-color);
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .intro-card h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .intro-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        .intro-text-box {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 6px solid var(--primary-color);
+            text-align: justify;
+        }
+        
+        .intro-text-box p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .intro-text-box p:last-child {
+            margin-bottom: 0;
         }
 
         /* Projects Section */
         .project-card {
             background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-            border-left: 5px solid var(--primary-color);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+            margin-bottom: 40px;
+            border-top: 5px solid var(--primary-color);
         }
 
         .project-card h3 {
             color: var(--primary-color);
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
 
         .project-card .tag {
             display: inline-block;
-            background: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 6px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
             font-weight: bold;
+            letter-spacing: 1px;
         }
 
         .img-placeholder {
             width: 100%;
-            max-height: 400px;
+            max-height: 450px;
             object-fit: cover;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* PDF Embed & Buttons */
+        .pdf-container {
+            width: 100%;
+            height: 500px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .pdf-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .btn-view {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
             border-radius: 8px;
-            margin: 15px 0;
-            border: 1px solid #eee;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-view:hover {
+            background-color: #1b5e20;
         }
 
         /* Summary Section */
         .summary-card {
             background: var(--white);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            font-size: 1.1rem;
-            line-height: 1.8;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            font-size: 1.15rem;
             text-align: justify;
         }
     </style>
@@ -166,7 +237,7 @@
             <div class="logo">Anh Đức Portfolio</div>
             <div class="nav-links">
                 <button class="tab-link active" onclick="openTab(event, 'GioiThieu')">Giới thiệu</button>
-                <button class="tab-link" onclick="openTab(event, 'DuAn')">Dự án</button>
+                <button class="tab-link" onclick="openTab(event, 'DuAn')">Dự án & Minh chứng</button>
                 <button class="tab-link" onclick="openTab(event, 'TongKet')">Tổng kết</button>
             </div>
         </nav>
@@ -177,74 +248,70 @@
         <section id="GioiThieu" class="tab-content active">
             <div class="intro-card">
                 <!-- Đổi link ảnh avatar của bạn vào src bên dưới -->
-                <img src="https://via.placeholder.com/150" alt="Avatar Ngọc Anh">
-                <h2>Ngọc Anh</h2>
-                <p style="color: var(--text-light); margin-bottom: 20px;">Sinh viên Ngành Kinh tế - Trường Đại học Kinh tế, ĐHQGHN</p>
-                <p>Chào mừng mọi người đến với Portfolio cá nhân của mình. Dự án này được thiết kế để tổng hợp và lưu trữ những kỹ năng số mình đã rèn luyện được. Mục tiêu của mình không chỉ là hoàn thành một bài tập học thuật, mà còn để ứng dụng trực tiếp các công cụ công nghệ và trí tuệ nhân tạo vào việc tối ưu hóa các công việc thường ngày, từ quản lý tài chính, hồ sơ cá nhân đến tra cứu thông tin đời sống.</p>
+                <img src="https://via.placeholder.com/180" alt="Avatar Anh Đức">
+                <h2>Anh Đức</h2>
+                <div class="intro-subtitle">Sinh viên Ngành Kinh tế - Trường Đại học Kinh tế (UEB), ĐHQGHN</div>
+                
+                <div class="intro-text-box">
+                    <p>Chào mừng bạn đến với không gian số của mình. Đối với mình, Portfolio này không chỉ dừng lại ở một bài tập kỹ thuật số đơn thuần, mà là nơi phản ánh chân thực hành trình học hỏi, trải nghiệm và từng bước làm chủ công nghệ của bản thân.</p>
+                    <p>Trong bối cảnh thời đại số, mình có niềm đam mê mạnh mẽ với việc tích hợp công nghệ và trí tuệ nhân tạo (AI) vào giải quyết các vấn đề thực tiễn: từ phân tích kinh tế, tối ưu hóa quy trình quản lý cá nhân cho đến tra cứu thông tin phục vụ đời sống. Mình tin rằng, giá trị cốt lõi không nằm ở việc chúng ta sử dụng bao nhiêu công cụ, mà nằm ở <strong>tư duy nhạy bén</strong> và <strong>cách chúng ta đặt vấn đề</strong> để công nghệ phục vụ đúng mục đích.</p>
+                    <p>Thông qua những dự án tại đây, mình muốn thể hiện sự thích nghi nhanh chóng với các biến động công nghệ và tinh thần trách nhiệm, phản biện cao khi tiếp nhận thông tin số. Mục tiêu dài hạn của mình là trở thành một nhân sự đa nhiệm, biết kết hợp hài hòa giữa chuyên môn Kinh tế và tư duy Công nghệ để mang lại những hiệu suất đột phá trong tương lai.</p>
+                </div>
             </div>
         </section>
 
         <!-- TRANG DỰ ÁN -->
         <section id="DuAn" class="tab-content">
-            <h2 style="margin-bottom: 25px; text-align: center; color: var(--text-dark);">Tập hợp các bài tập hoàn thành</h2>
+            <h2 style="margin-bottom: 30px; text-align: center; color: var(--text-dark); font-size: 2rem;">Chi tiết bài tập dự án</h2>
             
             <div class="project-card">
-                <span class="tag">Bài tập 1</span>
-                <h3>Thao tác cơ bản với tệp tin và thư mục</h3>
-                <p><strong>Mục tiêu:</strong> Tối ưu hóa không gian lưu trữ và quản lý hồ sơ cá nhân trên môi trường số.</p>
-                <p><strong>Tóm tắt quá trình:</strong> Khi chuẩn bị hồ sơ cho công việc làm thêm, mình nhận ra việc số hóa và sắp xếp giấy tờ rất quan trọng. Mình đã thiết lập cấu trúc thư mục rõ ràng và đồng nhất để lưu trữ các bản scan giấy tờ tùy thân, biểu mẫu đăng ký và hợp đồng. Việc phân loại logic này giúp mình truy xuất và gửi hồ sơ trực tuyến một cách nhanh chóng, tránh nhầm lẫn hoặc thất lạc tài liệu quan trọng.</p>
-                <!-- Đổi link ảnh chụp cây thư mục vào src -->
-                <img src="https://via.placeholder.com/800x400?text=Anh+chup+cay+thu+muc+ho+so" alt="Minh chứng Bài 1" class="img-placeholder">
+                <span class="tag">Bài tập 1 & 2</span>
+                <h3>Quản lý tệp tin và Đánh giá thông tin số</h3>
+                <p><strong>Mục tiêu:</strong> Tối ưu hóa không gian lưu trữ cá nhân và chắt lọc dữ liệu có độ tin cậy cao thông qua toán tử tìm kiếm nâng cao.</p>
+                <p><strong>Tóm tắt quá trình:</strong> Mình đã tiến hành số hóa toàn bộ hồ sơ cá nhân và phân loại cây thư mục đồng nhất. Đồng thời, khi tra cứu thông tin (ví dụ: tìm hiểu về các thiết bị âm thanh như tai nghe Soundcore), mình áp dụng triệt để các toán tử như <code>AND</code>, <code>OR</code> và <code>site:</code> để loại bỏ quảng cáo rác, tiếp cận nguồn dữ liệu uy tín từ người dùng thực tế.</p>
+                <!-- Đổi link ảnh minh chứng vào src -->
+                <img src="https://via.placeholder.com/800x400?text=Anh+Minh+Chung+Bai+1+Va+2" alt="Minh chứng" class="img-placeholder">
             </div>
 
             <div class="project-card">
-                <span class="tag">Bài tập 2</span>
-                <h3>Tìm kiếm và đánh giá thông tin</h3>
-                <p><strong>Mục tiêu:</strong> Sử dụng toán tử nâng cao để chắt lọc thông tin tiêu dùng chính xác.</p>
-                <p><strong>Tóm tắt quá trình:</strong> Trước khi quyết định mua các thiết bị công nghệ cá nhân như tai nghe Soundcore 50i, mình thường dùng toán tử tìm kiếm để lọc thông tin. Việc bọc lót từ khóa và giới hạn tên miền giúp mình loại bỏ được các trang web quảng cáo rác. Nhờ đó, mình có thể tiếp cận trực tiếp với những bài đánh giá thực tế từ người dùng trên các diễn đàn uy tín, tạo cơ sở để đưa ra quyết định mua sắm khách quan và hợp lý nhất.</p>
-                <!-- Đổi link ảnh chụp thanh tìm kiếm Google vào src -->
-                <img src="https://via.placeholder.com/800x400?text=Anh+chup+tim+kiem+Google+Soundcore+50i" alt="Minh chứng Bài 2" class="img-placeholder">
+                <span class="tag">Bài tập 3 & 4</span>
+                <h3>Prompt Engineering & Làm việc nhóm trực tuyến</h3>
+                <p><strong>Mục tiêu:</strong> Làm chủ ngôn ngữ giao tiếp với AI và điều phối công việc tập thể hiệu quả trên nền tảng đám mây.</p>
+                <p><strong>Tóm tắt quá trình:</strong> Trong các công việc thường nhật, thay vì đưa câu lệnh chung chung cho AI, mình luôn thiết lập bối cảnh, đóng vai và giới hạn kết quả đầu ra để có được thông tin sắc bén nhất. Bên cạnh đó, mình sử dụng Google Workspace để lên kế hoạch, phân chia ngân sách và theo dõi tiến độ cho các hoạt động ngoại khóa, đảm bảo sự minh bạch 100%.</p>
+                <!-- Đổi link ảnh minh chứng vào src -->
+                <img src="https://via.placeholder.com/800x400?text=Anh+Minh+Chung+Bai+3+Va+4" alt="Minh chứng" class="img-placeholder">
             </div>
 
             <div class="project-card">
-                <span class="tag">Bài tập 3</span>
-                <h3>Viết Prompt hiệu quả</h3>
-                <p><strong>Mục tiêu:</strong> Áp dụng kỹ thuật viết câu lệnh (Prompt Engineering) để giải quyết các nhu cầu thường ngày.</p>
-                <p><strong>Tóm tắt quá trình:</strong> Thay vì hỏi công thức nấu ăn một cách chung chung, mình yêu cầu AI đóng vai một đầu bếp chuyên nghiệp. Mình cung cấp định lượng chính xác của nguyên liệu và yêu cầu cách pha chế sốt BBQ dựa trên những gia vị có sẵn trong bếp. Nhờ việc thiết lập rõ ngữ cảnh và giới hạn đầu ra, công cụ AI đã trả về một công thức chi tiết, có tính ứng dụng cao và dễ dàng thực hiện ngay tại nhà.</p>
-                <img src="https://via.placeholder.com/800x400?text=Anh+chup+man+hinh+prompt+nau+an" alt="Minh chứng Bài 3" class="img-placeholder">
-            </div>
+                <span class="tag">Bài tập 5 & 6 (KÈM FILE PDF)</span>
+                <h3>Sáng tạo nội dung số & AI có trách nhiệm</h3>
+                <p><strong>Mục tiêu:</strong> Tận dụng sức mạnh tạo sinh của AI kết hợp với tư duy phản biện cá nhân để tạo ra sản phẩm nội dung có trách nhiệm.</p>
+                <p><strong>Tóm tắt quá trình:</strong> Mình sử dụng AI để hệ thống hóa dàn ý cho các bài viết cá nhân, nhưng luôn tự tay biên tập lại văn phong để giữ được tính nguyên bản. Quan trọng nhất, mình áp dụng bộ nguyên tắc kiểm chứng chéo thông tin (Fact-check) để đảm bảo không bị phụ thuộc và thao túng bởi dữ liệu ảo do AI tạo ra.</p>
+                
+                <!-- BẮT ĐẦU KHU VỰC NHÚNG FILE PDF -->
+                <p style="margin-top: 20px; font-weight: bold; color: var(--primary-color);">📄 Minh chứng đính kèm (File PDF):</p>
+                
+                <!-- Khung hiển thị trực tiếp PDF -->
+                <div class="pdf-container">
+                    <!-- HƯỚNG DẪN: Thay chữ TEN_FILE_CUA_BAN.pdf thành tên file bạn upload lên Github -->
+                    <iframe src="TEN_FILE_CUA_BAN.pdf"></iframe>
+                </div>
 
-            <div class="project-card">
-                <span class="tag">Bài tập 4</span>
-                <h3>Sử dụng công cụ hợp tác trực tuyến</h3>
-                <p><strong>Mục tiêu:</strong> Triển khai công cụ đám mây để quản lý tiến độ và ngân sách cho hoạt động tập thể.</p>
-                <p><strong>Tóm tắt quá trình:</strong> Ứng dụng công cụ làm việc trực tuyến không chỉ dừng lại ở môi trường học đường. Mình đã thiết lập một bảng tính Google Sheets để cùng nhóm bạn lên lịch trình du lịch. Mọi chi phí dự kiến, phân công chuẩn bị đồ đạc và lịch trình di chuyển đều được cập nhật tập trung. Tất cả thành viên đều có quyền truy cập và theo dõi trực tiếp, giúp việc phân chia tài chính trở nên minh bạch và quá trình chuẩn bị diễn ra suôn sẻ.</p>
-                <img src="https://via.placeholder.com/800x400?text=Anh+chup+Google+Sheets+Lich+trinh" alt="Minh chứng Bài 4" class="img-placeholder">
-            </div>
-
-            <div class="project-card">
-                <span class="tag">Bài tập 5</span>
-                <h3>Sử dụng AI tạo sinh hỗ trợ sáng tạo nội dung</h3>
-                <p><strong>Mục tiêu:</strong> Kết hợp công cụ trí tuệ nhân tạo để phác thảo và phát triển nội dung số cá nhân.</p>
-                <p><strong>Tóm tắt quá trình:</strong> Khi muốn viết một bài blog ngắn chia sẻ trải nghiệm thay đổi phong cách cá nhân, mình đã dùng AI để hệ thống hóa các ý chính và sắp xếp bố cục. Tuy nhiên, để nội dung phản ánh đúng góc nhìn thực tế, mình không sử dụng nguyên văn kết quả trả về. Mình đã trực tiếp biên tập lại toàn bộ câu chữ, bổ sung cảm nhận cá nhân để bài viết tự nhiên và mang đậm dấu ấn riêng.</p>
-                <img src="https://via.placeholder.com/800x400?text=Anh+chup+dan+y+AI+va+Blog+hoan+thien" alt="Minh chứng Bài 5" class="img-placeholder">
-            </div>
-
-            <div class="project-card">
-                <span class="tag">Bài tập 6</span>
-                <h3>Sử dụng AI có trách nhiệm</h3>
-                <p><strong>Mục tiêu:</strong> Thiết lập nguyên tắc an toàn và tư duy phản biện khi tiếp nhận thông tin từ AI.</p>
-                <p><strong>Bộ nguyên tắc cá nhân:</strong> Trong thời đại thông tin số, nguyên tắc cốt lõi của mình là luôn giữ tư duy phản biện đối với mọi dữ liệu do AI cung cấp. Khi tham khảo các gợi ý tiêu dùng, tư vấn hay thông tin trên mạng, mình hiểu rằng AI hoàn toàn có thể tạo ra những nội dung sai lệch hoặc đánh giá ảo. Việc chủ động kiểm chứng chéo thông tin qua nhiều nguồn độc lập giúp mình duy trì sự tỉnh táo, đưa ra các quyết định chính xác và tự chịu trách nhiệm với những lựa chọn của bản thân.</p>
+                <!-- Nút tải/xem dự phòng -->
+                <div style="text-align: center;">
+                    <a href="TEN_FILE_CUA_BAN.pdf" target="_blank" class="btn-view">Mở PDF toàn màn hình</a>
+                </div>
+                <!-- KẾT THÚC KHU VỰC NHÚNG FILE PDF -->
             </div>
         </section>
 
         <!-- TRANG TỔNG KẾT -->
         <section id="TongKet" class="tab-content">
             <div class="summary-card">
-                <h2 style="color: var(--primary-color); margin-bottom: 20px; text-align: center;">Nhìn Lại Chặng Đường</h2>
-                <p>Dự án Portfolio này đã giúp mình nhìn nhận lại toàn bộ quá trình ứng dụng công nghệ vào đời sống. Từ việc sắp xếp các tệp tin tưởng chừng đơn giản đến việc tương tác với các mô hình ngôn ngữ lớn, mình nhận ra rằng công nghệ chỉ thực sự phát huy sức mạnh khi con người biết cách làm chủ và sử dụng nó một cách có chủ đích.</p>
+                <h2 style="color: var(--primary-color); margin-bottom: 25px; text-align: center; font-size: 2rem;">Nhìn Lại Chặng Đường</h2>
+                <p>Dự án Portfolio này đã mang lại cho mình cơ hội tuyệt vời để nhìn nhận lại toàn bộ cách mình ứng dụng công nghệ vào đời sống và học tập. Từ những thao tác quản lý dữ liệu nền tảng cho đến việc tương tác chuyên sâu với các mô hình AI tạo sinh, mình nhận ra một bài học cốt lõi: <strong>Công cụ thông minh đến đâu cũng chỉ là phương tiện, tư duy của con người mới là yếu tố quyết định giá trị đầu ra.</strong></p>
                 <br>
-                <p>Những kỹ năng số này chắc chắn sẽ là nền tảng vững chắc để mình tiếp tục học tập, quản lý cuộc sống và làm việc hiệu quả hơn trong tương lai.</p>
+                <p>Khả năng khai thác công cụ trực tuyến, kết hợp với tư duy phản biện, nguyên tắc đạo đức trong sử dụng thông tin số chính là hành trang vững chắc nhất. Những kỹ năng này không chỉ giúp mình hoàn thành xuất sắc các dự án học thuật tại trường Đại học Kinh tế, mà còn là bệ phóng để mình tối ưu hóa hiệu suất làm việc, sẵn sàng thích ứng với những đòi hỏi khắt khe của môi trường kinh doanh số trong tương lai.</p>
             </div>
         </section>
     </div>
@@ -254,22 +321,23 @@
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             
-            // Ẩn tất cả các nội dung tab
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
                 tabcontent[i].classList.remove("active");
             }
             
-            // Xóa class active của tất cả các nút
             tablinks = document.getElementsByClassName("tab-link");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active");
             }
             
-            // Hiển thị tab hiện tại và thêm class active cho nút được click
             document.getElementById(tabName).style.display = "block";
-            document.getElementById(tabName).classList.add("active");
+            // Kích hoạt animation nhỏ xíu để chuyển trang mượt hơn
+            setTimeout(() => {
+                document.getElementById(tabName).classList.add("active");
+            }, 10);
+            
             evt.currentTarget.classList.add("active");
         }
     </script>
