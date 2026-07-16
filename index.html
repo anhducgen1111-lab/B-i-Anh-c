@@ -3,76 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Cá Nhân - Anh Đức</title>
+    <title>Portfolio Kỹ Năng Số - Anh Đức</title>
     <style>
         :root {
-            --primary-color: #2e7d32;
-            --secondary-color: #f1f8e9;
-            --text-dark: #333;
-            --text-light: #555;
-            --bg-light: #f9f9f9;
+            /* Tech Theme Colors */
+            --tech-primary: #2563eb; /* Electric Blue */
+            --tech-secondary: #0ea5e9; /* Cyan */
+            --tech-dark: #0f172a; /* Slate 900 */
+            --text-main: #334155; /* Slate 700 */
+            --text-light: #64748b; /* Slate 500 */
+            --bg-color: #f8fafc;
             --white: #ffffff;
-            --accent-color: #ff9800;
+            --tech-glow: rgba(37, 99, 235, 0.15);
+            --border-radius: 12px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            background-color: var(--bg-color);
+            /* Tech grid background */
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-main);
             line-height: 1.7;
         }
 
         /* Header & Navigation */
         header {
             background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 2px solid var(--tech-primary);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 15px 20px;
         }
 
         .logo {
             font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--tech-primary), var(--tech-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             letter-spacing: 1px;
         }
 
         .nav-links {
             display: flex;
-            gap: 15px;
+            gap: 10px;
         }
 
         .nav-links button {
-            background: none;
-            border: none;
+            background: transparent;
+            border: 2px solid transparent;
             font-size: 1rem;
             font-weight: 600;
             color: var(--text-light);
             cursor: pointer;
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 8px;
             transition: all 0.3s ease;
         }
 
-        .nav-links button:hover, .nav-links button.active {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
+        .nav-links button:hover {
+            color: var(--tech-primary);
+            background-color: #eff6ff;
+        }
+        
+        .nav-links button.active {
+            border: 2px solid var(--tech-primary);
+            color: var(--tech-primary);
+            background-color: #eff6ff;
+            box-shadow: 0 0 10px var(--tech-glow);
         }
 
         /* Container for Sections */
@@ -84,117 +100,164 @@
 
         .tab-content {
             display: none;
-            animation: fadeIn 0.6s ease-in-out;
+            animation: slideUp 0.5s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
         .tab-content.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+        @keyframes slideUp {
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Intro Section - Expanded */
+        /* Intro Section */
         .intro-card {
             background: var(--white);
             padding: 50px;
-            border-radius: 16px;
+            border-radius: var(--border-radius);
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            border: 1px solid #e2e8f0;
         }
 
         .intro-card img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+            border-radius: 20%;
             object-fit: cover;
-            border: 5px solid var(--secondary-color);
+            border: 4px solid var(--white);
+            outline: 3px solid var(--tech-primary);
             margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px var(--tech-glow);
         }
         
         .intro-card h2 {
             font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 5px;
+            color: var(--tech-dark);
+            margin-bottom: 10px;
+            font-weight: 800;
         }
         
-        .intro-subtitle {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            font-weight: 500;
+        .student-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
             margin-bottom: 30px;
+        }
+
+        .info-badge {
+            background-color: #f1f5f9;
+            color: var(--tech-dark);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-left: 4px solid var(--tech-primary);
+        }
+
+        .tech-code {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 700;
+            color: var(--tech-primary);
             letter-spacing: 0.5px;
         }
 
         .intro-text-box {
-            background-color: var(--secondary-color);
+            background-color: #f8fafc;
             padding: 30px;
-            border-radius: 12px;
-            border-left: 6px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            border: 1px solid #e2e8f0;
             text-align: justify;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-text-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: linear-gradient(to bottom, var(--tech-primary), var(--tech-secondary));
         }
         
         .intro-text-box p {
             margin-bottom: 15px;
             font-size: 1.05rem;
         }
-        
-        .intro-text-box p:last-child {
-            margin-bottom: 0;
-        }
 
         /* Projects Section */
         .project-card {
             background: var(--white);
             padding: 35px;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             margin-bottom: 40px;
-            border-top: 5px solid var(--primary-color);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .project-card h3 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px var(--tech-glow);
+            border-color: #bfdbfe;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 15px;
         }
 
         .project-card .tag {
-            display: inline-block;
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--tech-primary), var(--tech-secondary));
             color: var(--white);
-            padding: 6px 15px;
-            border-radius: 25px;
+            padding: 6px 12px;
+            border-radius: 6px;
             font-size: 0.9rem;
-            margin-bottom: 20px;
-            font-weight: bold;
+            font-weight: 700;
             letter-spacing: 1px;
         }
 
-        .img-placeholder {
-            width: 100%;
-            max-height: 450px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin: 20px 0;
-            border: 1px solid #eaeaea;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        .project-card h3 {
+            color: var(--tech-dark);
+            font-size: 1.4rem;
         }
-        
+
         /* PDF Embed & Buttons */
+        .pdf-section {
+            margin-top: 25px;
+            background-color: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px dashed #cbd5e1;
+        }
+
+        .pdf-section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--tech-primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .pdf-container {
             width: 100%;
-            height: 500px;
-            border: 2px dashed #ccc;
-            border-radius: 10px;
-            margin: 20px 0;
+            height: 400px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
             overflow: hidden;
+            background-color: #fff;
         }
         
         .pdf-container iframe {
@@ -205,28 +268,31 @@
 
         .btn-view {
             display: inline-block;
-            background-color: var(--primary-color);
+            background-color: var(--tech-primary);
             color: white;
-            padding: 10px 20px;
+            padding: 8px 16px;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 15px;
+            font-size: 0.9rem;
             transition: background-color 0.3s;
         }
         
         .btn-view:hover {
-            background-color: #1b5e20;
+            background-color: #1d4ed8; /* Blue 700 */
         }
 
         /* Summary Section */
         .summary-card {
             background: var(--white);
             padding: 50px;
-            border-radius: 16px;
+            border-radius: var(--border-radius);
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             font-size: 1.15rem;
             text-align: justify;
+            border: 1px solid #e2e8f0;
+            border-top: 5px solid var(--tech-secondary);
         }
     </style>
 </head>
@@ -234,11 +300,11 @@
 
     <header>
         <nav>
-            <div class="logo">Anh Đức Portfolio</div>
+            <div class="logo">&lt;AnhDuc/&gt;</div>
             <div class="nav-links">
-                <button class="tab-link active" onclick="openTab(event, 'GioiThieu')">Giới thiệu</button>
-                <button class="tab-link" onclick="openTab(event, 'DuAn')">Dự án & Minh chứng</button>
-                <button class="tab-link" onclick="openTab(event, 'TongKet')">Tổng kết</button>
+                <button class="tab-link active" onclick="openTab(event, 'GioiThieu')">01. Giới thiệu</button>
+                <button class="tab-link" onclick="openTab(event, 'DuAn')">02. Dự án & Minh chứng</button>
+                <button class="tab-link" onclick="openTab(event, 'TongKet')">03. Tổng kết</button>
             </div>
         </nav>
     </header>
@@ -248,9 +314,14 @@
         <section id="GioiThieu" class="tab-content active">
             <div class="intro-card">
                 <!-- Đổi link ảnh avatar của bạn vào src bên dưới -->
-                <img src="https://via.placeholder.com/180" alt="Avatar Anh Đức">
+                <img src="https://via.placeholder.com/160" alt="Avatar Anh Đức">
                 <h2>Anh Đức</h2>
-                <div class="intro-subtitle">Sinh viên Ngành Kinh tế - Trường Đại học Kinh tế (UEB), ĐHQGHN</div>
+                
+                <div class="student-info">
+                    <div class="info-badge">Sinh viên Ngành Kinh tế - UEB, ĐHQGHN</div>
+                    <div class="info-badge">MSV: <span class="tech-code">25050547</span></div>
+                    <div class="info-badge">Mã lớp: <span class="tech-code">VNU1001_E252045_UEB.D6</span></div>
+                </div>
                 
                 <div class="intro-text-box">
                     <p>Chào mừng bạn đến với không gian số của mình. Đối với mình, Portfolio này không chỉ dừng lại ở một bài tập kỹ thuật số đơn thuần, mà là nơi phản ánh chân thực hành trình học hỏi, trải nghiệm và từng bước làm chủ công nghệ của bản thân.</p>
@@ -262,53 +333,127 @@
 
         <!-- TRANG DỰ ÁN -->
         <section id="DuAn" class="tab-content">
-            <h2 style="margin-bottom: 30px; text-align: center; color: var(--text-dark); font-size: 2rem;">Chi tiết bài tập dự án</h2>
+            <h2 style="margin-bottom: 30px; text-align: center; color: var(--tech-dark); font-size: 2rem; font-weight: 800;">Chi tiết bài tập dự án</h2>
             
+            <!-- BÀI TẬP 1 -->
             <div class="project-card">
-                <span class="tag">Bài tập 1 & 2</span>
-                <h3>Quản lý tệp tin và Đánh giá thông tin số</h3>
-                <p><strong>Mục tiêu:</strong> Tối ưu hóa không gian lưu trữ cá nhân và chắt lọc dữ liệu có độ tin cậy cao thông qua toán tử tìm kiếm nâng cao.</p>
-                <p><strong>Tóm tắt quá trình:</strong> Mình đã tiến hành số hóa toàn bộ hồ sơ cá nhân và phân loại cây thư mục đồng nhất. Đồng thời, khi tra cứu thông tin (ví dụ: tìm hiểu về các thiết bị âm thanh như tai nghe Soundcore), mình áp dụng triệt để các toán tử như <code>AND</code>, <code>OR</code> và <code>site:</code> để loại bỏ quảng cáo rác, tiếp cận nguồn dữ liệu uy tín từ người dùng thực tế.</p>
-                <!-- Đổi link ảnh minh chứng vào src -->
-                <img src="https://via.placeholder.com/800x400?text=Anh+Minh+Chung+Bai+1+Va+2" alt="Minh chứng" class="img-placeholder">
+                <div class="project-header">
+                    <span class="tag">BÀI 1</span>
+                    <h3>Thao tác cơ bản với tệp tin và thư mục</h3>
+                </div>
+                <p><strong>Mục tiêu:</strong> Tối ưu hóa không gian lưu trữ cá nhân trên môi trường số.</p>
+                <p><strong>Tóm tắt quá trình:</strong> Mình đã tiến hành số hóa toàn bộ hồ sơ cá nhân và phân loại cây thư mục đồng nhất. Việc phân loại logic này giúp truy xuất và gửi hồ sơ trực tuyến một cách nhanh chóng, tránh nhầm lẫn hoặc thất lạc tài liệu quan trọng.</p>
+                
+                <div class="pdf-section">
+                    <div class="pdf-section-title">📄 Minh chứng đính kèm Bài 1</div>
+                    <div class="pdf-container">
+                        <!-- Đổi TEN_FILE_BAI_1.pdf thành tên file bạn upload -->
+                        <iframe src="TEN_FILE_BAI_1.pdf"></iframe>
+                    </div>
+                    <a href="TEN_FILE_BAI_1.pdf" target="_blank" class="btn-view">Mở file Bài 1</a>
+                </div>
             </div>
 
+            <!-- BÀI TẬP 2 -->
             <div class="project-card">
-                <span class="tag">Bài tập 3 & 4</span>
-                <h3>Prompt Engineering & Làm việc nhóm trực tuyến</h3>
-                <p><strong>Mục tiêu:</strong> Làm chủ ngôn ngữ giao tiếp với AI và điều phối công việc tập thể hiệu quả trên nền tảng đám mây.</p>
-                <p><strong>Tóm tắt quá trình:</strong> Trong các công việc thường nhật, thay vì đưa câu lệnh chung chung cho AI, mình luôn thiết lập bối cảnh, đóng vai và giới hạn kết quả đầu ra để có được thông tin sắc bén nhất. Bên cạnh đó, mình sử dụng Google Workspace để lên kế hoạch, phân chia ngân sách và theo dõi tiến độ cho các hoạt động ngoại khóa, đảm bảo sự minh bạch 100%.</p>
-                <!-- Đổi link ảnh minh chứng vào src -->
-                <img src="https://via.placeholder.com/800x400?text=Anh+Minh+Chung+Bai+3+Va+4" alt="Minh chứng" class="img-placeholder">
+                <div class="project-header">
+                    <span class="tag">BÀI 2</span>
+                    <h3>Tìm kiếm và đánh giá thông tin</h3>
+                </div>
+                <p><strong>Mục tiêu:</strong> Sử dụng toán tử nâng cao để chắt lọc thông tin tiêu dùng chính xác.</p>
+                <p><strong>Tóm tắt quá trình:</strong> Khi tra cứu thông tin (ví dụ: tìm hiểu về tai nghe Soundcore), mình áp dụng triệt để các toán tử như <code>AND</code>, <code>OR</code> và <code>site:</code> để loại bỏ quảng cáo rác, tiếp cận nguồn dữ liệu uy tín từ người dùng thực tế và áp dụng tiêu chí CRAAP để đánh giá nguồn tin.</p>
+                
+                <div class="pdf-section">
+                    <div class="pdf-section-title">📄 Minh chứng đính kèm Bài 2</div>
+                    <div class="pdf-container">
+                        <!-- Đổi TEN_FILE_BAI_2.pdf thành tên file bạn upload -->
+                        <iframe src="TEN_FILE_BAI_2.pdf"></iframe>
+                    </div>
+                    <a href="TEN_FILE_BAI_2.pdf" target="_blank" class="btn-view">Mở file Bài 2</a>
+                </div>
             </div>
 
+            <!-- BÀI TẬP 3 -->
             <div class="project-card">
-                <span class="tag">Bài tập 5 & 6 (KÈM FILE PDF)</span>
-                <h3>Sáng tạo nội dung số & AI có trách nhiệm</h3>
-                <p><strong>Mục tiêu:</strong> Tận dụng sức mạnh tạo sinh của AI kết hợp với tư duy phản biện cá nhân để tạo ra sản phẩm nội dung có trách nhiệm.</p>
-                <p><strong>Tóm tắt quá trình:</strong> Mình sử dụng AI để hệ thống hóa dàn ý cho các bài viết cá nhân, nhưng luôn tự tay biên tập lại văn phong để giữ được tính nguyên bản. Quan trọng nhất, mình áp dụng bộ nguyên tắc kiểm chứng chéo thông tin (Fact-check) để đảm bảo không bị phụ thuộc và thao túng bởi dữ liệu ảo do AI tạo ra.</p>
-                
-                <!-- BẮT ĐẦU KHU VỰC NHÚNG FILE PDF -->
-                <p style="margin-top: 20px; font-weight: bold; color: var(--primary-color);">📄 Minh chứng đính kèm (File PDF):</p>
-                
-                <!-- Khung hiển thị trực tiếp PDF -->
-                <div class="pdf-container">
-                    <!-- HƯỚNG DẪN: Thay chữ TEN_FILE_CUA_BAN.pdf thành tên file bạn upload lên Github -->
-                    <iframe src="TEN_FILE_CUA_BAN.pdf"></iframe>
+                <div class="project-header">
+                    <span class="tag">BÀI 3</span>
+                    <h3>Viết Prompt hiệu quả</h3>
                 </div>
+                <p><strong>Mục tiêu:</strong> Làm chủ ngôn ngữ giao tiếp với AI (Prompt Engineering).</p>
+                <p><strong>Tóm tắt quá trình:</strong> Thay vì đưa câu lệnh chung chung cho AI, mình luôn thiết lập bối cảnh (Context), đóng vai (Role) và giới hạn (Constraint) kết quả đầu ra. Việc này ngăn chặn tình trạng ảo giác của AI và giúp thông tin trả về sắc bén, đúng với mục đích sử dụng nhất.</p>
+                
+                <div class="pdf-section">
+                    <div class="pdf-section-title">📄 Minh chứng đính kèm Bài 3</div>
+                    <div class="pdf-container">
+                        <!-- Đổi TEN_FILE_BAI_3.pdf thành tên file bạn upload -->
+                        <iframe src="TEN_FILE_BAI_3.pdf"></iframe>
+                    </div>
+                    <a href="TEN_FILE_BAI_3.pdf" target="_blank" class="btn-view">Mở file Bài 3</a>
+                </div>
+            </div>
 
-                <!-- Nút tải/xem dự phòng -->
-                <div style="text-align: center;">
-                    <a href="TEN_FILE_CUA_BAN.pdf" target="_blank" class="btn-view">Mở PDF toàn màn hình</a>
+            <!-- BÀI TẬP 4 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="tag">BÀI 4</span>
+                    <h3>Sử dụng công cụ hợp tác trực tuyến</h3>
                 </div>
-                <!-- KẾT THÚC KHU VỰC NHÚNG FILE PDF -->
+                <p><strong>Mục tiêu:</strong> Điều phối công việc tập thể hiệu quả trên nền tảng đám mây.</p>
+                <p><strong>Tóm tắt quá trình:</strong> Mình sử dụng hệ sinh thái Google Workspace (Google Sheets, Docs) để lên kế hoạch, phân chia ngân sách và theo dõi tiến độ cho các hoạt động làm việc nhóm. Tất cả thành viên đều có thể theo dõi trực tiếp, đảm bảo sự minh bạch 100%.</p>
+                
+                <div class="pdf-section">
+                    <div class="pdf-section-title">📄 Minh chứng đính kèm Bài 4</div>
+                    <div class="pdf-container">
+                        <!-- Đổi TEN_FILE_BAI_4.pdf thành tên file bạn upload -->
+                        <iframe src="TEN_FILE_BAI_4.pdf"></iframe>
+                    </div>
+                    <a href="TEN_FILE_BAI_4.pdf" target="_blank" class="btn-view">Mở file Bài 4</a>
+                </div>
+            </div>
+
+            <!-- BÀI TẬP 5 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="tag">BÀI 5</span>
+                    <h3>Sáng tạo nội dung số với AI</h3>
+                </div>
+                <p><strong>Mục tiêu:</strong> Tận dụng sức mạnh tạo sinh của AI kết hợp với tư duy cá nhân.</p>
+                <p><strong>Tóm tắt quá trình:</strong> Mình sử dụng AI để hệ thống hóa dàn ý cho các bài viết, nhưng luôn tự tay biên tập lại văn phong để giữ được tính nguyên bản, mộc mạc và mang đậm dấu ấn cá nhân thay vì sự sáo rỗng của máy móc.</p>
+                
+                <div class="pdf-section">
+                    <div class="pdf-section-title">📄 Minh chứng đính kèm Bài 5</div>
+                    <div class="pdf-container">
+                        <!-- Đổi TEN_FILE_BAI_5.pdf thành tên file bạn upload -->
+                        <iframe src="TEN_FILE_BAI_5.pdf"></iframe>
+                    </div>
+                    <a href="TEN_FILE_BAI_5.pdf" target="_blank" class="btn-view">Mở file Bài 5</a>
+                </div>
+            </div>
+
+            <!-- BÀI TẬP 6 -->
+            <div class="project-card">
+                <div class="project-header">
+                    <span class="tag">BÀI 6</span>
+                    <h3>Sử dụng AI có trách nhiệm</h3>
+                </div>
+                <p><strong>Mục tiêu:</strong> Thiết lập nguyên tắc an toàn và tư duy phản biện khi tiếp nhận thông tin.</p>
+                <p><strong>Tóm tắt quá trình:</strong> Mình áp dụng bộ nguyên tắc kiểm chứng chéo thông tin (Fact-check) từ nhiều nguồn uy tín để đảm bảo không bị phụ thuộc và thao túng bởi các dữ liệu sai lệch (hallucination) do AI tạo ra trong quá trình nghiên cứu và học tập.</p>
+                
+                <div class="pdf-section">
+                    <div class="pdf-section-title">📄 Minh chứng đính kèm Bài 6</div>
+                    <div class="pdf-container">
+                        <!-- Đổi TEN_FILE_BAI_6.pdf thành tên file bạn upload -->
+                        <iframe src="TEN_FILE_BAI_6.pdf"></iframe>
+                    </div>
+                    <a href="TEN_FILE_BAI_6.pdf" target="_blank" class="btn-view">Mở file Bài 6</a>
+                </div>
             </div>
         </section>
 
         <!-- TRANG TỔNG KẾT -->
         <section id="TongKet" class="tab-content">
             <div class="summary-card">
-                <h2 style="color: var(--primary-color); margin-bottom: 25px; text-align: center; font-size: 2rem;">Nhìn Lại Chặng Đường</h2>
+                <h2 style="color: var(--tech-dark); margin-bottom: 25px; text-align: center; font-size: 2rem; font-weight: 800;">Nhìn Lại Chặng Đường</h2>
                 <p>Dự án Portfolio này đã mang lại cho mình cơ hội tuyệt vời để nhìn nhận lại toàn bộ cách mình ứng dụng công nghệ vào đời sống và học tập. Từ những thao tác quản lý dữ liệu nền tảng cho đến việc tương tác chuyên sâu với các mô hình AI tạo sinh, mình nhận ra một bài học cốt lõi: <strong>Công cụ thông minh đến đâu cũng chỉ là phương tiện, tư duy của con người mới là yếu tố quyết định giá trị đầu ra.</strong></p>
                 <br>
                 <p>Khả năng khai thác công cụ trực tuyến, kết hợp với tư duy phản biện, nguyên tắc đạo đức trong sử dụng thông tin số chính là hành trang vững chắc nhất. Những kỹ năng này không chỉ giúp mình hoàn thành xuất sắc các dự án học thuật tại trường Đại học Kinh tế, mà còn là bệ phóng để mình tối ưu hóa hiệu suất làm việc, sẵn sàng thích ứng với những đòi hỏi khắt khe của môi trường kinh doanh số trong tương lai.</p>
@@ -333,7 +478,7 @@
             }
             
             document.getElementById(tabName).style.display = "block";
-            // Kích hoạt animation nhỏ xíu để chuyển trang mượt hơn
+            
             setTimeout(() => {
                 document.getElementById(tabName).classList.add("active");
             }, 10);
