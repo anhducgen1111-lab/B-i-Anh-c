@@ -6,63 +6,61 @@
     <title>Portfolio Kỹ Năng Số - Anh Đức</title>
     <style>
         :root {
-            --neon-blue: #00f3ff;
-            --neon-purple: #bc13fe;
-            --dark-bg: #050b14;
-            --card-bg: rgba(10, 15, 30, 0.6);
-            --text-main: #e2e8f0;
-            --text-light: #94a3b8;
-            --border-glow: rgba(0, 243, 255, 0.2);
-            --radius-lg: 20px;
-            --radius-md: 12px;
+            --apple-blue: #0071e3;
+            --apple-text-dark: #1d1d1f;
+            --apple-text-gray: #86868b;
+            --apple-bg-light: #f5f5f7;
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --radius-lg: 32px; /* Bo góc to chuẩn iOS */
+            --radius-md: 20px;
+            --radius-sm: 12px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', sans-serif;
+            /* Font chữ hệ thống giống Apple */
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* Tùy chỉnh thanh cuộn */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--dark-bg); }
-        ::-webkit-scrollbar-thumb { background: var(--neon-blue); border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 10px; }
 
+        /* Liquid Gradient Background */
         body {
-            background-color: var(--dark-bg);
-            background-image: url('image_a33ffc.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--text-main);
-            line-height: 1.7;
+            background: linear-gradient(-45deg, #ffb6ff, #b3cdd1, #9fa5d5, #e8f5c8);
+            background-size: 400% 400%;
+            animation: liquidGradient 15s ease infinite;
+            color: var(--apple-text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, rgba(5, 11, 20, 0.4) 0%, rgba(5, 11, 20, 0.9) 100%);
-            z-index: -1;
+        @keyframes liquidGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* Giao diện Menu Floating Pill */
+        /* Menu Floating Pill - Apple Style */
         header {
             position: fixed;
-            top: 25px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(10, 15, 30, 0.85);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(25px) saturate(200%);
+            -webkit-backdrop-filter: blur(25px) saturate(200%);
             z-index: 1000;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--border-glow);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
             border-radius: 50px;
-            padding: 10px 25px;
+            padding: 8px 12px;
             width: 90%;
-            max-width: 800px;
+            max-width: 600px;
         }
 
         nav {
@@ -71,17 +69,11 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 900;
-            color: var(--neon-blue);
-            letter-spacing: 2px;
-            font-family: monospace;
-        }
-
         .nav-links {
             display: flex;
-            gap: 10px;
+            gap: 8px;
+            width: 100%;
+            justify-content: center;
         }
 
         .nav-links button {
@@ -89,64 +81,63 @@
             border: none;
             font-size: 0.95rem;
             font-weight: 600;
-            color: var(--text-light);
+            color: var(--apple-text-gray);
             cursor: pointer;
-            padding: 8px 20px;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            padding: 10px 24px;
+            border-radius: 40px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .nav-links button:hover {
-            color: var(--neon-blue);
+            color: var(--apple-text-dark);
         }
         
         .nav-links button.active {
-            color: var(--dark-bg);
-            background: var(--neon-blue);
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.6);
+            color: var(--apple-text-dark);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
-        /* Container mở rộng */
+        /* Container */
         .container {
             max-width: 1200px; 
             margin: 0 auto;
-            padding: 120px 20px 50px 20px; 
+            padding: 110px 20px 60px 20px; 
         }
 
         .tab-content {
             display: none;
-            animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: iOSFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
-            transform: scale(0.98);
+            transform: translateY(20px) scale(0.98);
         }
 
         .tab-content.active {
             display: block;
         }
 
-        @keyframes fadeInScale {
-            to { opacity: 1; transform: scale(1); }
+        @keyframes iOSFadeIn {
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* Glassmorphism chung */
-        .glass-panel {
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        /* LIQUID GLASS EFFECT */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid var(--glass-border);
             border-radius: var(--radius-lg);
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .glass-panel:hover {
-            border-color: rgba(0, 243, 255, 0.3);
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
 
-        /* Lưới Bất đối xứng phần Giới thiệu */
+        /* Lưới phần Giới thiệu */
         .intro-grid {
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -159,38 +150,40 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(180deg, rgba(10,15,30,0.8) 0%, rgba(0,243,255,0.05) 100%);
-            border: 1px solid var(--border-glow);
         }
 
         .id-card h1 {
-            font-size: 2.5rem;
-            color: #fff;
+            font-size: 2.8rem;
+            color: var(--apple-text-dark);
             margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px var(--neon-blue);
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
         .id-card .major {
-            color: var(--neon-blue);
-            font-size: 1rem;
-            margin-bottom: 20px;
-            font-family: monospace;
+            color: var(--apple-blue);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 25px;
         }
 
-        .tech-info {
+        .info-pill {
             width: 100%;
-            background: rgba(0,0,0,0.5);
-            padding: 15px;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 12px 20px;
             border-radius: var(--radius-md);
+            margin-bottom: 12px;
             text-align: left;
-            font-family: monospace;
-            font-size: 0.9rem;
-            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
         }
 
-        .tech-info span { color: #fff; float: right; }
+        .info-pill span {
+            font-weight: 700;
+            color: var(--apple-text-dark);
+        }
 
         .intro-modules {
             display: flex;
@@ -199,27 +192,26 @@
         }
 
         .module {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 25px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid var(--glass-border);
             border-radius: var(--radius-md);
-            border-left: 3px solid var(--neon-blue);
+            padding: 25px;
+            border-left: 4px solid var(--apple-blue);
         }
 
         .module h3 {
-            color: var(--neon-blue);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
+            color: var(--apple-text-dark);
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
         }
 
         .module p {
-            color: #cbd5e1;
+            color: #333336;
             text-align: justify;
         }
 
-        /* Bento Grid phần Dự án */
+        /* Bố cục Bento Box (Dự án) */
         .projects-bento {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -231,43 +223,43 @@
         .project-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 15px;
-            border-bottom: 1px dashed rgba(255,255,255,0.1);
-            padding-bottom: 10px;
         }
 
         .project-header h3 {
-            color: #fff;
-            font-size: 1.3rem;
+            color: var(--apple-text-dark);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .tag {
-            background: rgba(0, 243, 255, 0.1);
-            color: var(--neon-blue);
-            padding: 4px 10px;
-            border-radius: 4px;
+            background: var(--apple-blue);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
             font-size: 0.8rem;
-            font-family: monospace;
-            border: 1px solid var(--neon-blue);
+            font-weight: 600;
         }
 
         .project-desc {
             font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 20px;
+            color: #424245;
+            margin-bottom: 25px;
         }
 
-        .project-desc strong { color: #fff; }
+        .project-desc strong { color: var(--apple-text-dark); }
 
-        /* Tùy chỉnh PDF Frame */
+        /* Khung chứa PDF */
         .pdf-container {
             width: 100%;
-            height: 300px;
-            border: 1px solid rgba(0, 243, 255, 0.15);
-            border-radius: var(--radius-md);
+            height: 320px;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: var(--radius-sm);
             overflow: hidden;
-            background: #0f172a;
+            background: #fff;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .col-span-2 .pdf-container {
@@ -283,31 +275,28 @@
         .btn-view {
             display: block;
             text-align: center;
-            background: rgba(0, 243, 255, 0.1);
-            color: var(--neon-blue);
-            padding: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--apple-blue);
+            padding: 12px;
             text-decoration: none;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-sm);
             font-weight: 600;
             margin-top: 15px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 0.9rem;
             transition: all 0.3s;
         }
         
         .btn-view:hover {
-            background: var(--neon-blue);
-            color: var(--dark-bg);
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+            background: var(--apple-blue);
+            color: white;
         }
 
-        /* Responsive cho Mobile */
+        /* Responsive Mobile */
         @media (max-width: 800px) {
             .intro-grid, .projects-bento { grid-template-columns: 1fr; }
             .col-span-2 { grid-column: span 1; }
-            header { width: 95%; padding: 10px 15px; }
-            .nav-links button { padding: 6px 12px; font-size: 0.85rem; }
+            header { width: 95%; padding: 8px; }
+            .nav-links button { padding: 8px 16px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -315,9 +304,7 @@
 
     <header>
         <nav>
-            <div class="logo">SYS.DUC</div>
             <div class="nav-links">
-                <!-- Đã chỉnh sửa lại chuẩn 3 phần -->
                 <button class="tab-link active" onclick="openTab(event, 'GioiThieu')">Giới thiệu</button>
                 <button class="tab-link" onclick="openTab(event, 'DuAn')">Dự án</button>
                 <button class="tab-link" onclick="openTab(event, 'TongKet')">Tổng kết</button>
@@ -329,142 +316,140 @@
         <!-- TRANG GIỚI THIỆU -->
         <section id="GioiThieu" class="tab-content active">
             <div class="intro-grid">
-                <!-- Cột trái: Thẻ ID -->
-                <div class="glass-panel id-card">
+                <!-- ID Card -->
+                <div class="glass-card id-card">
                     <h1>Anh Đức</h1>
                     <div class="major">KINH TẾ - UEB, ĐHQGHN</div>
                     
-                    <div class="tech-info">
-                        <p>MÃ_SV: <span>25050547</span></p>
-                        <hr style="border: 0; border-top: 1px dashed rgba(255,255,255,0.2); margin: 10px 0;">
-                        <p>LỚP: <span>VNU1001_E252045_UEB.D6</span></p>
-                        <hr style="border: 0; border-top: 1px dashed rgba(255,255,255,0.2); margin: 10px 0;">
-                        <p>STATUS: <span style="color: #00ff00;">ONLINE</span></p>
+                    <div style="width: 100%;">
+                        <div class="info-pill">Mã SV: <span>25050547</span></div>
+                        <div class="info-pill">Lớp: <span>VNU1001_E252045_UEB.D6</span></div>
+                        <div class="info-pill">Tình trạng: <span style="color: #34c759;">Hoạt động</span></div>
                     </div>
                 </div>
 
-                <!-- Cột phải: Các module text -->
+                <!-- Text Modules -->
                 <div class="intro-modules">
-                    <div class="glass-panel module">
-                        <h3>[01] Khái quát chung</h3>
+                    <div class="module">
+                        <h3>Khái quát chung</h3>
                         <p>Portfolio này được xây dựng không chỉ để đáp ứng yêu cầu của môn học Kỹ năng số, mà còn là một không gian lưu trữ trực quan về hành trình khám phá và ứng dụng công nghệ. Dự án này là tập hợp các minh chứng cho việc biến những công cụ công nghệ thành các giải pháp tối ưu hóa hiệu suất học tập và quản lý dữ liệu thực tế.</p>
                     </div>
-                    <div class="glass-panel module">
-                        <h3>[02] Quá trình vận dụng</h3>
+                    <div class="module">
+                        <h3>Quá trình vận dụng</h3>
                         <p>Mình đã chủ động tích hợp nền tảng số vào giải quyết các bài toán cụ thể: Chuẩn hóa hệ thống tệp tin cá nhân; sử dụng toán tử tìm kiếm để chắt lọc dữ liệu; áp dụng kỹ thuật Prompt Engineering để điều khiển AI tạo sinh, đồng thời vận hành mượt mà Google Workspace để quản lý tiến độ làm việc nhóm.</p>
                     </div>
-                    <div class="glass-panel module">
-                        <h3>[03] Sự tiến bộ</h3>
+                    <div class="module">
+                        <h3>Sự tiến bộ</h3>
                         <p>Thành quả lớn nhất là sự chuyển biến sâu sắc trong tư duy. Mình thoát khỏi trạng thái tiếp nhận thông tin thụ động để hình thành tư duy phản biện. Học được cách kiểm chứng chéo (Fact-check) và áp dụng các nguyên tắc đạo đức với AI, tạo bệ phóng vững chắc thích ứng với môi trường kinh doanh số hóa.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- TRANG DỰ ÁN (BENTO BOX LAYOUT) -->
+        <!-- TRANG DỰ ÁN -->
         <section id="DuAn" class="tab-content">
             <div class="projects-bento">
                 
-                <!-- BÀI 1 (Ô Nhỏ 1) -->
-                <div class="glass-panel">
+                <!-- BÀI 1 -->
+                <div class="glass-card">
                     <div class="project-header">
                         <h3>Thao tác tệp tin</h3>
-                        <span class="tag">BÀI 1</span>
+                        <span class="tag">Bài 1</span>
                     </div>
                     <div class="project-desc">
                         <p><strong>Mục tiêu:</strong> Tối ưu hóa không gian lưu trữ cá nhân.</p>
                         <p>Phân loại cây thư mục đồng nhất để truy xuất và gửi hồ sơ trực tuyến nhanh chóng, tránh thất lạc dữ liệu.</p>
                     </div>
+                    <!-- CHỖ CHÈN PDF BÀI 1 -->
                     <div class="pdf-container">
-                        <!-- SỬA TÊN FILE Ở ĐÂY -->
                         <iframe src="TEN_FILE_BAI_1.pdf"></iframe>
                     </div>
-                    <a href="TEN_FILE_BAI_1.pdf" target="_blank" class="btn-view">Phóng To Tài Liệu</a>
+                    <a href="TEN_FILE_BAI_1.pdf" target="_blank" class="btn-view">Mở Toàn Màn Hình</a>
                 </div>
 
-                <!-- BÀI 2 (Ô Nhỏ 2) -->
-                <div class="glass-panel">
+                <!-- BÀI 2 -->
+                <div class="glass-card">
                     <div class="project-header">
                         <h3>Đánh giá thông tin</h3>
-                        <span class="tag">BÀI 2</span>
+                        <span class="tag">Bài 2</span>
                     </div>
                     <div class="project-desc">
                         <p><strong>Mục tiêu:</strong> Chắt lọc thông tin số chính xác.</p>
                         <p>Áp dụng các toán tử <code>AND</code>, <code>OR</code>, <code>site:</code> để loại bỏ quảng cáo rác, tiếp cận nguồn dữ liệu uy tín.</p>
                     </div>
+                    <!-- CHỖ CHÈN PDF BÀI 2 -->
                     <div class="pdf-container">
-                        <!-- SỬA TÊN FILE Ở ĐÂY -->
                         <iframe src="TEN_FILE_BAI_2.pdf"></iframe>
                     </div>
-                    <a href="TEN_FILE_BAI_2.pdf" target="_blank" class="btn-view">Phóng To Tài Liệu</a>
+                    <a href="TEN_FILE_BAI_2.pdf" target="_blank" class="btn-view">Mở Toàn Màn Hình</a>
                 </div>
 
-                <!-- BÀI 3 (Ô TO - Trải dài) -->
-                <div class="glass-panel col-span-2">
+                <!-- BÀI 3 -->
+                <div class="glass-card col-span-2">
                     <div class="project-header">
                         <h3>Viết Prompt Hiệu Quả (Prompt Engineering)</h3>
-                        <span class="tag">BÀI 3</span>
+                        <span class="tag">Bài 3</span>
                     </div>
                     <div class="project-desc">
                         <p><strong>Mục tiêu:</strong> Làm chủ ngôn ngữ giao tiếp với Trí tuệ nhân tạo.</p>
                         <p>Thiết lập bối cảnh (Context), đóng vai (Role) và giới hạn (Constraint) kết quả đầu ra để ngăn chặn tình trạng ảo giác của AI, giúp thông tin trả về sắc bén và đúng mục đích sử dụng nhất.</p>
                     </div>
+                    <!-- CHỖ CHÈN PDF BÀI 3 -->
                     <div class="pdf-container">
-                        <!-- SỬA TÊN FILE Ở ĐÂY -->
                         <iframe src="TEN_FILE_BAI_3.pdf"></iframe>
                     </div>
-                    <a href="TEN_FILE_BAI_3.pdf" target="_blank" class="btn-view">Phóng To Tài Liệu</a>
+                    <a href="TEN_FILE_BAI_3.pdf" target="_blank" class="btn-view">Mở Toàn Màn Hình</a>
                 </div>
 
-                <!-- BÀI 4 (Ô Nhỏ 3) -->
-                <div class="glass-panel">
+                <!-- BÀI 4 -->
+                <div class="glass-card">
                     <div class="project-header">
                         <h3>Hợp tác trực tuyến</h3>
-                        <span class="tag">BÀI 4</span>
+                        <span class="tag">Bài 4</span>
                     </div>
                     <div class="project-desc">
                         <p><strong>Mục tiêu:</strong> Điều phối công việc tập thể.</p>
                         <p>Sử dụng Google Workspace lên kế hoạch, phân chia ngân sách và theo dõi tiến độ nhóm minh bạch 100%.</p>
                     </div>
+                    <!-- CHỖ CHÈN PDF BÀI 4 -->
                     <div class="pdf-container">
-                        <!-- SỬA TÊN FILE Ở ĐÂY -->
                         <iframe src="TEN_FILE_BAI_4.pdf"></iframe>
                     </div>
-                    <a href="TEN_FILE_BAI_4.pdf" target="_blank" class="btn-view">Phóng To Tài Liệu</a>
+                    <a href="TEN_FILE_BAI_4.pdf" target="_blank" class="btn-view">Mở Toàn Màn Hình</a>
                 </div>
 
-                <!-- BÀI 5 (Ô Nhỏ 4) -->
-                <div class="glass-panel">
+                <!-- BÀI 5 -->
+                <div class="glass-card">
                     <div class="project-header">
                         <h3>Sáng tạo với AI</h3>
-                        <span class="tag">BÀI 5</span>
+                        <span class="tag">Bài 5</span>
                     </div>
                     <div class="project-desc">
                         <p><strong>Mục tiêu:</strong> Tận dụng sức mạnh tạo sinh.</p>
                         <p>Sử dụng AI hệ thống hóa dàn ý, sau đó biên tập lại văn phong để giữ được tính nguyên bản và mộc mạc.</p>
                     </div>
+                    <!-- CHỖ CHÈN PDF BÀI 5 -->
                     <div class="pdf-container">
-                        <!-- SỬA TÊN FILE Ở ĐÂY -->
                         <iframe src="TEN_FILE_BAI_5.pdf"></iframe>
                     </div>
-                    <a href="TEN_FILE_BAI_5.pdf" target="_blank" class="btn-view">Phóng To Tài Liệu</a>
+                    <a href="TEN_FILE_BAI_5.pdf" target="_blank" class="btn-view">Mở Toàn Màn Hình</a>
                 </div>
 
-                <!-- BÀI 6 (Ô TO - Trải dài) -->
-                <div class="glass-panel col-span-2">
+                <!-- BÀI 6 -->
+                <div class="glass-card col-span-2">
                     <div class="project-header">
                         <h3>Sử dụng AI có trách nhiệm (AI Ethics)</h3>
-                        <span class="tag">BÀI 6</span>
+                        <span class="tag">Bài 6</span>
                     </div>
                     <div class="project-desc">
                         <p><strong>Mục tiêu:</strong> Thiết lập nguyên tắc an toàn và tư duy phản biện khi tiếp nhận thông tin.</p>
                         <p>Áp dụng bộ nguyên tắc kiểm chứng chéo (Fact-check) từ nhiều nguồn uy tín để đảm bảo không bị phụ thuộc và thao túng bởi các dữ liệu sai lệch (hallucination) do AI tạo ra trong quá trình nghiên cứu và học tập.</p>
                     </div>
+                    <!-- CHỖ CHÈN PDF BÀI 6 -->
                     <div class="pdf-container">
-                        <!-- SỬA TÊN FILE Ở ĐÂY -->
                         <iframe src="TEN_FILE_BAI_6.pdf"></iframe>
                     </div>
-                    <a href="TEN_FILE_BAI_6.pdf" target="_blank" class="btn-view">Phóng To Tài Liệu</a>
+                    <a href="TEN_FILE_BAI_6.pdf" target="_blank" class="btn-view">Mở Toàn Màn Hình</a>
                 </div>
 
             </div>
@@ -472,10 +457,10 @@
 
         <!-- TRANG TỔNG KẾT -->
         <section id="TongKet" class="tab-content">
-            <div class="glass-panel" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <h2 style="color: var(--neon-blue); margin-bottom: 25px; font-size: 2rem; font-weight: 800; text-transform: uppercase;">Nhìn Lại Chặng Đường</h2>
-                <p style="text-align: justify; font-size: 1.1rem; margin-bottom: 15px; color: #cbd5e1;">Dự án Portfolio này đã mang lại cơ hội tuyệt vời để nhìn nhận lại toàn bộ cách ứng dụng công nghệ vào đời sống và học tập. Từ những thao tác quản lý dữ liệu nền tảng cho đến việc tương tác chuyên sâu với AI, một bài học cốt lõi được rút ra: <strong>Công cụ thông minh đến đâu cũng chỉ là phương tiện, tư duy của con người mới là yếu tố quyết định giá trị đầu ra.</strong></p>
-                <p style="text-align: justify; font-size: 1.1rem; color: #cbd5e1;">Khả năng khai thác công cụ trực tuyến, kết hợp với tư duy phản biện, nguyên tắc đạo đức trong sử dụng thông tin số chính là hành trang vững chắc nhất để sẵn sàng thích ứng với những đòi hỏi khắt khe của môi trường kinh doanh số trong tương lai.</p>
+            <div class="glass-card" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 style="color: var(--apple-text-dark); margin-bottom: 25px; font-size: 2.2rem; font-weight: 700; letter-spacing: -1px;">Nhìn Lại Chặng Đường</h2>
+                <p style="text-align: justify; font-size: 1.1rem; margin-bottom: 20px; color: #424245;">Dự án Portfolio này đã mang lại cơ hội tuyệt vời để nhìn nhận lại toàn bộ cách ứng dụng công nghệ vào đời sống và học tập. Từ những thao tác quản lý dữ liệu nền tảng cho đến việc tương tác chuyên sâu với AI, một bài học cốt lõi được rút ra: <strong>Công cụ thông minh đến đâu cũng chỉ là phương tiện, tư duy của con người mới là yếu tố quyết định giá trị đầu ra.</strong></p>
+                <p style="text-align: justify; font-size: 1.1rem; color: #424245;">Khả năng khai thác công cụ trực tuyến, kết hợp với tư duy phản biện, nguyên tắc đạo đức trong sử dụng thông tin số chính là hành trang vững chắc nhất để sẵn sàng thích ứng với những đòi hỏi khắt khe của môi trường kinh doanh số trong tương lai.</p>
             </div>
         </section>
     </div>
